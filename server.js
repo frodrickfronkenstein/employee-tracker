@@ -43,6 +43,32 @@ function viewAllDepartments() {
             console.table(response);
             directoryMenu();
         })
-}
+};
+
+function viewRoles() {
+    db.promise().query('SELECT * FROM roles')
+        .then(([response]) => {
+            console.clear();
+            console.table(response);
+            directoryMenu();
+        })
+};
+
+function viewEmployees() {
+    db.promise().query('SELECT * FROM employees')
+        .then(([response]) => {
+            console.clear();
+            console.table(response);
+            directoryMenu();
+        })
+};
+
+function addDepartment() {};
+
+function addRole() {};
+
+function addEmployee() {};
+
+function updateEmployeeRole() {};
 
 directoryMenu();
