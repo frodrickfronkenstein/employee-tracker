@@ -36,4 +36,13 @@ function directoryMenu() {
     });
 };
 
+function viewAllDepartments() {
+    db.promise().query('SELECT * FROM departments')
+        .then(([response]) => {
+            console.clear();
+            console.table(response);
+            directoryMenu();
+        })
+}
+
 directoryMenu();
