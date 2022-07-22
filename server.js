@@ -63,7 +63,27 @@ function viewEmployees() {
         })
 };
 
-function addDepartment() {};
+function addDepartment() {
+    console.clear();
+    console.log('Please follow the following prompts:');
+    inquirer.prompt([{
+        type: 'input',
+        name: 'departmentName',
+        message: 'What is the new department called?'
+    }]).then((answer) => {
+        console.log(answer);
+        //let newDepartment = new departmentName(departmentName);
+        //console.log(newDepartment);
+
+        finishAddingDepartment(answer.departmentName);
+    })
+};
+
+function finishAddingDepartment(newDepartment) {
+    console.log(newDepartment);
+    db.promise().query("INSERT INTO departments SET (?)", newDepartment)
+    directoryMenu();
+};
 
 function addRole() {};
 
